@@ -223,18 +223,5 @@ For GitOps, the preferred rollback is to revert the commit in the GitOps reposit
 - Configure least-privilege tokens and production environment reviewers.
 - This is a learning project, not a hardened production platform. Pin third-party Actions to reviewed full commit SHAs for production use and review upstream action security before adoption.
 
-## Interview questions
-
-**CI vs CD:** Continuous Integration automatically validates changes; Continuous Delivery/Deployment automates preparing or releasing validated changes. In this project, GitHub Actions performs CI and image publishing, while Argo CD performs GitOps-based delivery.
-
-**What is GitOps?** Git is the source of truth for the desired state. Argo CD continuously compares that state with the Kubernetes cluster and reconciles differences.
-
-**Why use a commit SHA image tag?** It identifies the exact source revision and avoids ambiguity from a mutable `latest` tag.
-
-**How do you roll back?** Revert the GitOps commit or restore a previously working image SHA in Git; Argo CD syncs the desired state.
-
-**How are secrets protected?** Store tokens in GitHub Actions Secrets, use least privilege, and never print or commit credentials.
-
-## Resume line
 
 Built a CI/CD pipeline with GitHub Actions and Argo CD that builds, tests, scans and deploys a Dockerized application to Kubernetes using GitOps and immutable commit-SHA image tags.
