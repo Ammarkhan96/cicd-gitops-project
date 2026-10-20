@@ -1,0 +1,21 @@
+replicaCount: 2
+
+image:
+  repository: DOCKERHUB_USERNAME/github-actions-argocd-app
+  tag: "REPLACE_WITH_COMMIT_SHA"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8000
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 96Mi
+  limits:
+    cpu: 500m
+    memory: 256Mi
+
+containerPort: 8000
